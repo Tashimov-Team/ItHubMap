@@ -6,7 +6,8 @@ export default function RoomTwo(){
 const [modalContent, setModalContent] = useState({
     isActive: false,
     title: "",
-    description: ""
+    description: "",
+    teacher: ""
 });
 
 const CABINETS = {
@@ -60,7 +61,8 @@ const cabinet = CABINETS[cabinetNum];
     setModalContent({
         isActive: true,
         title: cabinet.title,
-        description: cabinet.description
+        description: cabinet.description,
+        teacher: cabinet.teacher
     });
 }
 const closeModal = () => {
