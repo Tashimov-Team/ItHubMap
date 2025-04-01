@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useSpring } from 'framer-motion';
 import RoomOne from './components/RoomOne';
 import RoomTwo from './components/RoomTwo';
 
 function App() {
     const [currentFloor, setCurrentFloor] = useState(1);
-    const [scale, setScale] = useState(1);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
+    const [scale, setScale] = useState(0.8);
+    const [position, setPosition] = useState({ x: 0, y: 100 });
     const [modalContent, setModalContent] = useState({
         isActive: false,
         title: "",
@@ -14,8 +14,9 @@ function App() {
         teacher: ""
     });
 
-    const handleZoomIn = () => setScale(prev => Math.min(prev + 0.2, 2));
-    const handleZoomOut = () => setScale(prev => Math.max(prev - 0.2, 0.5));
+    const scaleSpring = useSpring(0.8, { stiffness: 50, damping: 10 });
+    const handleZoomIn = () => scaleSpring.set(Math.min(scaleSpring.get() + 0.2, 2));
+    const handleZoomOut = () => scaleSpring.set(Math.max(scaleSpring.get() - 0.2, 0.5));
     const closeModal = () => setModalContent(prev => ({ ...prev, isActive: false }));
 
     return (
@@ -166,7 +167,7 @@ function App() {
             <motion.div
                 className="w-full h-full origin-center"
                 style={{
-                    scale,
+                    scale: scaleSpring,
                     x: position.x,
                     y: position.y
                 }}
