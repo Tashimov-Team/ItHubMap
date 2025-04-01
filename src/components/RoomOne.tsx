@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function RoomOne({ setModalContent }){
@@ -52,15 +51,23 @@ export default function RoomOne({ setModalContent }){
         }
     };
 
-const headerPathClick = (cabinetNum) => {
-const cabinet = CABINETS[cabinetNum];
-    setModalContent({
-        isActive: true,
-        title: cabinet.title,
-        description: cabinet.description,
-        teacher : cabinet.teacher,
-    });
-}
+    const headerPathClick = (cabinetNum) => {
+        if (cabinetNum === 3) {
+            setModalContent({
+                isActive: true,
+                modalType: 'pong',
+            });
+        } else {
+            const cabinet = CABINETS[cabinetNum];
+            setModalContent({
+                isActive: true,
+                title: cabinet.title,
+                description: cabinet.description,
+                teacher: cabinet.teacher,
+                modalType: 'default',
+            });
+        }
+    };
 const closeModal = () => {
     setModalContent(prev => ({
         ...prev,
