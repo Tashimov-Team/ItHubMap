@@ -72,6 +72,9 @@ const PongGame = () => {
             <div className="absolute top-4 left-1/2 transform -translate-x-1/2 text-white text-2xl">
                 {score.player} - {score.computer}
             </div>
+            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white">
+                <h2>10 очков - Автомат по любому предмету</h2>
+            </div>
         </div>
     );
 };
