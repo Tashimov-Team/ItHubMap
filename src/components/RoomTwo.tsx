@@ -42,7 +42,7 @@ const closeModal = () => {
                     <path   onClick={() => headerPathClick(10)}  className="fill-[#7E5B3E]  stroke-[#3D3129] hover:opacity-50 opacity-10 cursor-pointer" d="m 832,289.98117 h 187.656 L 1019.4088,175.97027 832,177 Z" />
                     <path   onClick={() => headerPathClick(11)}  className="fill-[#7E5B3E]  stroke-[#3D3129] hover:opacity-50 opacity-10 cursor-pointer" d="m 919,177 h 100.4569 L 1019,19 H 919 Z" />
                 </svg>
-                <img src="./public/map2.svg" alt="SVG map" className="w-full h-full object-contain"/>;
+                <img src="/map2.svg" alt="SVG map" className="w-full h-full object-contain"/>;
             </motion.div>
         </div>
     </>
