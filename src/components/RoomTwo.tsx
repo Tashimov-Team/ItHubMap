@@ -1,69 +1,17 @@
 import React from "react";
 import {AnimatePresence, motion} from "framer-motion";
 
-export default function RoomTwo({ setModalContent }){
-
-    const CABINETS = {
-        1: {
-            title: "Кофейня",
-            description: "Описание для первого кабинета",
-            teacher: "eefefef"
-        },
-        2: {
-            title: "YMT",
-            description: "Информация о втором кабинете",
-
-        },
-        3: {
-            title: "Кинозал",
-            description: "Третий кабинет - технический",
-
-        },
-        4: {
-            title: "Кабинет 1",
-            description: "Четвертый кабинет администрации",
-
-        },
-        5: {
-            title: "Зеленая зона",
-            description: "Пятый кабинет переговоров",
-
-        },
-        7: {
-            title: "City & Guilds",
-            description: "Пятый кабинет переговоров",
-
-        },
-
-        8: {
-            title: "Кабинет 5",
-            description: "Пятый кабинет переговоров",
-
-        },
-        9: {
-            title: "Кабинет 2",
-            description: "Пятый кабинет переговоров",
-
-        },
-        10: {
-            title: "Кабинет 4",
-            description: "Пятый кабинет переговоров",
-
-        },
-        11: {
-            title: "Лаборатория",
-            description: "Пятый кабинет переговоров",
-
-        }
-    };
+export default function RoomTwo({ cabinets,setModalContent }){
 
 const headerPathClick = (cabinetNum) => {
-const cabinet = CABINETS[cabinetNum];
+const cabinet = cabinets[cabinetNum];
     setModalContent({
         isActive: true,
         title: cabinet.title,
         description: cabinet.description,
-        teacher: cabinet.teacher
+        teacher: cabinet.teacher,
+        url: cabinet.url,
+        images: cabinet.images,
     });
 }
 const closeModal = () => {
